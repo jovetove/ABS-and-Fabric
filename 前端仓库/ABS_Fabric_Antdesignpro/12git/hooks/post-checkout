@@ -1,0 +1,43 @@
+#!/bin/sh
+#yorkie 2.0.0
+
+command_exists () {
+  command -v "$1" >/dev/null 2>&1
+}
+
+has_hook_script () {
+  [ -f package.json ] && cat package.json | grep -q "\"$1\"[[:space:]]*:"
+}
+
+# OS X and Linux only
+load_nvm () {
+  # If nvm is not loaded, load it
+  command_exists nvm || {
+    export NVM_DIR="$1"
+    [ -s "$1/nvm.sh" ] && . "$1/nvm.sh"
+  }
+}
+
+# OS X and Linux only
+run_nvm () {
+  # If nvm has been loaded correctly, use project .nvmrc
+  command_exists nvm && [ -f .nvmrc ] && nvm use
+}
+
+cd "."
+
+# Check if post-checkout is defined, skip if not
+has_hook_script post-checkout || exit 0
+
+# Node standard installation
+export PATH="$PATH:/c/Program Files/nodejs"
+
+# Export Git hook params
+export GIT_PARAMS="$*"
+
+# Run hook
+node "./node_modules/yorkie/src/runner.js" post-checkout || {
+  echo
+  echo "post-checkout hook failed (add --no-verify to bypass)"
+  exit 1
+}
