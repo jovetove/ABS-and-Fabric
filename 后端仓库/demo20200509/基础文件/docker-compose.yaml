@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mysql:
+    restart: always
+    image: "mysql:5.6"
+    command: --default-authentication-plugin=mysql_native_password #解决外部无法访问
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin # root 用户的密码
+      MYSQL_USER: 'root'
+      MYSQL_PASS: 'admin'
+    container_name: mysql1
+    # volumes:
+    #   # 存放了数据库表文件
+    #   - "./db:/var/lib/mysql"
+    #   # 存放自定义的配置文件
+    #   - "./conf/my.cnf:/etc/my.cnf"
+    #   # 存放初始化的脚本
+    #   - "./init:/docker-entrypoint-initdb.d/"
+
+# 启动容器
+# docker-compose up -d
+# docker-compose --compatibility up -d

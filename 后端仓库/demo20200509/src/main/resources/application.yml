@@ -1,0 +1,36 @@
+server:
+  port: 80
+#  profiles:
+#    active: dev # 指定环境为dev
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false
+    username: root
+    password: admin
+    # 数据库驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  mail:
+    host: smtp.163.com
+    username: zjianfa1@163.com # 邮箱登录账号
+    password: UKLTZOFKAFSDXOOA  # 邮箱登录密码--授权码
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+mail:
+  fromMail:
+    addr: zjianfa1@163.com
+  receptionMail:
+    addr: zjianfa@foxmail.com
+
+mybatis-plus:
+  ##mybatis-plus mapper xml 文件地址
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  ##mybatis-plus type-aliases 文件地址
+  type-aliases-package: com.example.demoBase.entity

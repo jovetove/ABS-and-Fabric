@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demobase.mapper.UserMapper">
+
+
+    <insert id="insertBySome"  parameterType="com.example.demobase.entity.User" useGeneratedKeys="true" keyProperty="id">
+        use test;
+        INSERT INTO user(name,  password, email, age) VALUES (#{name}, #{password}, #{email}, #{age});
+    </insert>
+    <select id="selectByEmail" parameterType="java.lang.String" resultType="com.example.demobase.entity.User">
+        select * from test.user where email = #{email};
+    </select>
+</mapper>
