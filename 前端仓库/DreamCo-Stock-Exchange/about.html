@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>DreamCO Stock Exchange</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,2300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Charts -->
+    <script type="text/javascript" src="dse_data.json"></script>
+ 
+
+  <style type="text/css">
+    
+    .btn {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.yes {
+  background-color: #4CAF50;
+  }
+
+.yes:hover 
+{background-color: #46a049;
+}
+  </style>
+
+
+</head>
+
+<body onload = displayTime();>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.php"><span style="color: #0290ad">Fab</span>  资产交易系统</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">主页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="company.html">资产列表</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="details.html">详情</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">关于</a>
+               
+          </li>
+           <form action="search_result.php">
+
+            <input type="text" placeholder="搜索.." name="search"onkeyup="searchFun()">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+ <header class="masthead" style="background-image: url('img/one.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>安全 · 公开 · 实时</h1>
+            <span class="subheading">一个去中心化，数据安全的资产转让平台，提供ABS业务相关的功能支持的平台。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- Main Content -->
+  <div class="container">
+	<div id="time">
+		<p id="demo" style="text-align: center;"></p>
+	</div>
+
+		<marquee direction="scroll"> 
+
+
+		AAMRANET <font style="color: green">+23.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		ABB1STMF <font style="color: red">-33.91 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		ABBANK <font style="color: green">+3.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		ACFL<font style="color: green">+65.92 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		ACI <font style="color: green">+90.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		ETL  <font style="color: red">-14.12 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		EXIM1STMF <font style="color: red">-34.20 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		EXIMBANK <font style="color: green">+97.22 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		OLYMPIC <font style="color: green">+31.23 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		ONEBANKLTD <font style="color: red">-32.67 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		ORIONINFU <font style="color: red">-7.98 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  ORIONPHARM <font style="color: green">+56.25 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 RUPALIINS <font style="color: red">-16.67 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  HOMETEX <font style="color: green">+35.37 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  RECKITTBEN <font style="color: red">-11.78 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		  MONNOSTAF <font style="color: red">-43.81 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  LINDEBD<font style="color: green">+87.09 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  GLAXOSMITH<font style="color: red">-9.45 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  AARONG <font style="color: green">+23.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		MOLLASOLT <font style="color: red">-33.91 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		PREMIEREBANK <font style="color: green">+3.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		SQUAREPHARMA<font style="color: green">+65.92 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		PRANRFL <font style="color: green">+90.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		WALTONMOTORS<font style="color: red">-14.12 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		DANO<font style="color: red">-34.20 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		PUBALIBANK<font style="color: green">+97.22 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    DESHBANDHU <font style="color: green">+23.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    SALVOCHEM <font style="color: red">-33.91 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    SOUTHEASTB <font style="color: green">+3.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    METROSPIN<font style="color: green">+65.92 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ICBSONALI1 <font style="color: green">+90.21 &uarr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    KEYACOSMET  <font style="color: red">0.64 &darr;</font> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+	</marquee>
+  	<hr>
+  </div>
+
+
+<section id ="main">
+<div class="container">
+<article id ="main-col">
+  <h1 class=" page-title" style="color: white; padding-top: 10px;" > <b> Rules & Regulations </b> </h1>
+  <ul id ="services">
+    <li>
+      <h2> RULEBOOK </h2>
+    <p> The attractiveness of the Exchange's markets is maintained by providing an efficient and well regulated market place. As a Recognised Investment Exchange (RIE), the Exchange also has to satisfy the requirements detailed in the Financial Conduct Authority's RIE and RCH Sourcebook. Orderly markets are maintained via rules, guidance and through the monitoring of trading and market activity. Stock Exchange Notices disseminate amendments to market rules and guidance.<br>
+
+    The Exchange's primary aim is to provide issuers, intermediaries and investors with attractive, efficient and well-regulated markets in which to raise capital and fulfil investment and trading requirements.
+      </p><br>
+   
+    </li>
+
+    <li>
+      <h2> ADMISSION TO TRADING </h2>
+    <p> To be able to list on the main market, an issuer must comply with the requirements for granting officially listed status. In addition an issuer must apply to the Stock Exchange to be admitted to trading on the main market. The Exchange has a set of straight-forward admission and disclosure standards that will help you to gain admission to the main market. For the application for admission of securities to trading Form 1 go to Regulatory Forms & Agreements.
+      </p>
+    <br><br>
+    </li>
+
+    <li>
+      <h2> REGULATORY FORMS & AGREEMENTS </h2>
+    <p>Below you will find a number of forms commonly used by member firms for regulatory purposes. You can download, print, complete and return forms to the relevant Exchange departments.</p>
+
+<p>
+Application to trade in a suspended security (pdffile pdf - 88 KB) <br>
+When issued dealing application form (docfile doc - 491 KB)<br>
+Buying-In Request Manual Form (xlsfile xls - 60 KB)<br>
+Registration Information Form  (xlsfile xls - 49 KB)</p>
+
+<p>
+Global Lending Agreement (pdffile pdf - 175 KB)  <br>
+Admission and disclosure application - Form 1 (docfile doc - 299 KB)<br>
+Restricted Instrument List Request - (docfile doc - 57 KB)<br>
+Liquidity Provider Form(xlsfile xls - 131 KB)</p>
+<br>
+   </li>
+
+ <li>
+      <h2> Settlement Arrangement Declaration Forms </h2>
+<p>
+For use by applicant and member firms in order to confirm to the London Stock Exchange their settlement arrangements
+ with third party providers. Firms should complete one or both depending on the settlement arrangements in place. 
+Each declaration must be fully completed and signed by both the firm and its settlement provider.</p>
+
+Settlement Agent Declaration Form (pdffile pdf - 22 KB) <br>
+Model B Settlement Agreement Declaration Form (pdffile pdf - 23 KB)<br>
+
+AIM Secondary Market Registered Organisation applications<br><br>
+ 
+Parties interested in becoming an AIM Secondary Market Registered Organisation should contact 
+Rules & Compliance Team on +44 (0)20 7797 2190 or STX 32190 to obtain an application pack.
+    
+</pre> 
+</li>
+    </ul>
+</article>
+</div>
+</section>
+<br><br>
+  <hr>
+
+  <!-- Footer -->
+<footer>
+    <div class="container">
+        
+    <div class="row">
+        <div class="col-sm-12 col-md-3"><br>
+          <h4></h4>
+           <button class="btn yes" ><a href="post.html">Contact Us</a></button>
+           
+        </div>
+        
+        <div class="col-sm-12 col-md-6">
+          <br>
+           <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="http://www.twitter.com/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/rafsan.anan">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/RaFsanAnAn">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+           <p class="copyright" style="color: white;">Copyright &copy; S.M. Rafsan Anjum Anan</p>
+            
+        </div>
+
+        <div class="col-sm-12 col-md-3" id="footermenu">
+       <span><a href="index.html">Home</a></span> <br><br>
+        <span><a href="company.html">Companies</a></span> <br><br>
+         <span><a href="details.html">Details</a></span> <br><br>
+          <span><a href="about.html">About Us</a></span> <br>
+       
+        <h4></h4>    
+      
+        </div>
+    </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+
+</body>
+
+</html>
